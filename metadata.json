@@ -1,0 +1,5 @@
+{
+  "name": "ScholarGen AI",
+  "description": "An advanced academic research paper generator that mimics the writing style of tenured professors, complete with mermaid.js diagrams and rigorous formatting.",
+  "requestFramePermissions": []
+}

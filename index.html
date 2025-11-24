@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ScholarGen AI - Academic Research Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.min.js"></script>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f3f4f6;
+      }
+      .academic-text {
+        font-family: 'Merriweather', serif;
+      }
+      /* Hide scrollbar for clean UI but allow scroll */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      /* Print Styles for PDF Generation */
+      @media print {
+        @page {
+          margin: 0.8in;
+          size: letter;
+        }
+        
+        /* Hide ALL UI elements */
+        nav, 
+        button, 
+        input, 
+        textarea, 
+        select,
+        .sticky-header, 
+        .no-print,
+        .print\:hidden {
+          display: none !important;
+        }
+
+        /* Layout Resets for Paper */
+        html, body {
+          background-color: white;
+          color: black;
+          font-size: 11pt; /* Slightly smaller to fit more content if needed, standard academic is 11 or 12 */
+          margin: 0;
+          padding: 0;
+          overflow: visible !important;
+          height: auto !important;
+        }
+        
+        #root, .bg-gray-50, .min-h-screen, .flex-1, .overflow-auto {
+          background-color: white !important;
+          height: auto !important;
+          overflow: visible !important;
+          display: block !important;
+          position: static !important;
+          width: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+
+        /* Paper Renderer Content */
+        .academic-text {
+          line-height: 1.8; 
+          text-align: justify;
+        }
+        
+        /* Paper Container */
+        .max-w-4xl {
+          max-width: 100% !important;
+          width: 100% !important;
+          box-shadow: none !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+
+        h1 {
+          font-size: 24pt;
+          text-align: center;
+          margin-bottom: 2rem;
+          color: black !important;
+        }
+        h2 {
+          font-size: 16pt;
+          margin-top: 2rem;
+          margin-bottom: 1rem;
+          page-break-before: always;
+          color: black !important;
+        }
+        
+        /* Ensure charts break nicely */
+        .mermaid-container, svg {
+          page-break-inside: avoid;
+          margin: 1.5rem auto;
+          max-width: 100%;
+        }
+        
+        /* Ensure tables break nicely */
+        table {
+          page-break-inside: auto;
+          width: 100% !important;
+          border: 1px solid #000 !important;
+        }
+        tr {
+          page-break-inside: avoid;
+          page-break-after: auto;
+        }
+        th, td {
+          border: 1px solid #000 !important;
+          color: black !important;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
